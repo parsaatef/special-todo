@@ -1,10 +1,10 @@
 import React from 'react';
-import { Todo } from 'types/todo';
+import { Todos } from 'types/todo';
 import { Table } from 'reactstrap';
 import TodoItem from '../todoItem/TodoItem';
 
 export interface Props {
-    todos: Omit<Todo, 'userId'>[]
+    todos: Todos
 }
 
 const TodosList: React.FC<Props> = (props) => {

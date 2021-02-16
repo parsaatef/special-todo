@@ -1,1 +1,9 @@
-export {};
+export const SEARCH_UPDATE = 'SEARCH_UPDATE';
+
+export const UPDATE_STATUS = 'UPDATE_STATUS';
+
+export const REQUEST_TODOS = 'REQUEST_TODOS';
+
+export const SUCCESS_TODOS = 'SUCCESS_TODOS';
+
+export const FAILURE_TODOS = 'FAILURE_TODOS';

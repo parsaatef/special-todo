@@ -1,6 +1,11 @@
 import React from 'react';
+import { Todo, Todos } from 'types/todo';
 
-const Todo = () => {
+export interface Props {
+    Todos: Todos
+}
+
+const Todo: React.FC<Props> = () => {
 
     return (
         <section>
