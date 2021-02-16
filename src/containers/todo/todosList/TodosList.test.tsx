@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findTestEl } from '../../../helper/testUtils';
+import { findTestEl, todosMock } from '../../../helper/testUtils';
 import TodosList, { Props } from './TodosList';
 
 const initialProps = {
@@ -51,23 +51,7 @@ describe("TodosList Component Unit Test", () => {
 
     test("renders correctly when `todos` prop is not empty" , () => {
 
-        const todos = [
-            {
-                id: 1,
-                completed: false,
-                title: "Todo 1"
-            },
-            {
-                id: 2,
-                completed: true,
-                title: "Todo 2"
-            },
-            {
-                id: 3,
-                completed: true,
-                title: "Todo 3"
-            }
-        ];
+        const todos = todosMock;
 
         const wrapper = setup({ todos });
     
