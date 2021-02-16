@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Input } from 'reactstrap';
 
 export interface Props {
@@ -9,7 +9,7 @@ const TodoSearch: React.FC<Props> = (props) => {
 
     const { searchUpdate } = props;
 
-    const [value, setSearchValue] = useState('');
+    const [value, setSearchValue] = React.useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 

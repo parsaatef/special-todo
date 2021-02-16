@@ -1,11 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TodoSearch from './containers/todo/todoSearch/TodoSearch';
 import './App.css';
 
 function App() {
     return (
         <>
             <h1>Docler FE Homework</h1>
+            <TodoSearch searchUpdate={() => console.log("test")} />
             <ul>
                 <li>Create the layout based on the designs at the bottom of the task's description</li>
                 <li>Make sure the layout looks great both on desktop and on mobile</li>

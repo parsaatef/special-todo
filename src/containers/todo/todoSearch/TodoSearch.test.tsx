@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, ShallowWrapper } from 'enzyme';
+import { mount, ReactWrapper } from 'enzyme';
 import { findTestEl } from '../../../helper/testUtils';
 import TodoSearch, { Props } from './TodoSearch';
 
@@ -14,7 +14,7 @@ const setup = (props: Partial<Props> = initialProps) => {
         ...props
     };
 
-    return shallow(<TodoSearch {...finalProps} />);
+    return mount(<TodoSearch {...finalProps} />);
 };
 
 describe('TodoSearch Component Unit Test', () => {
@@ -33,7 +33,7 @@ describe('TodoSearch Component Unit Test', () => {
 
         let mockSetSearchValue = jest.fn();
 
-        let wrapper: ShallowWrapper;
+        let wrapper: ReactWrapper;
 
         let value = 'Custom Search';
 
@@ -41,12 +41,14 @@ describe('TodoSearch Component Unit Test', () => {
 
             mockSetSearchValue.mockClear();
 
+            initialProps.searchUpdate.mockClear();
+
             React.useState = jest.fn(() => ["", mockSetSearchValue]);
     
             wrapper = setup();
     
-            const inputBox = findTestEl(wrapper, 'todo-search-input');
-    
+            const inputBox = findTestEl(wrapper, 'todo-search-input').at(0);
+
             const mockEvent = { target: { value } };
     
             inputBox.simulate("change", mockEvent);
@@ -55,9 +57,9 @@ describe('TodoSearch Component Unit Test', () => {
 
         test("check set state of controlled input", () => {
     
-            expect(mockSetSearchValue).toHaveBeenCalledWith(value);
-    
             expect(mockSetSearchValue).toBeCalledTimes(1);
+
+            expect(mockSetSearchValue).toHaveBeenCalledWith(value);
     
         });
     
