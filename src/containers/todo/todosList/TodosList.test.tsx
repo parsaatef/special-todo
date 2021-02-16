@@ -75,10 +75,6 @@ describe("TodosList Component Unit Test", () => {
 
         expect(todosItems.length).toBe(todos.length);
 
-        const todosProp = wrapper.prop('todos');
-
-        expect(todosProp).toEqual(todos);
-
     });
 
 });
