@@ -10,6 +10,6 @@ export const getTodoStatuses = [
     },
     {
         text: 'No',
-        value: 'yes'
+        value: 'no'
     } 
 ];

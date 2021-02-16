@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TodoSearch from './containers/todo/todoSearch/TodoSearch';
+import TodoStatusFilter from './containers/todo/todoStatusFilter/TodoStatusFilter';
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
         <>
             <h1>Docler FE Homework</h1>
             <TodoSearch searchUpdate={() => console.log("test")} />
+            <TodoStatusFilter updateStatus={() => console.log("test")} />
             <ul>
                 <li>Create the layout based on the designs at the bottom of the task's description</li>
                 <li>Make sure the layout looks great both on desktop and on mobile</li>

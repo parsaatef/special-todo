@@ -64,7 +64,7 @@ describe('TodoStatusFilter Component Unit Test', () => {
     
         });
     
-        test("check `searchUpdate` prop", () => {
+        test("check `updateStatus` prop", () => {
             
             const updateStatusMock = wrapper.prop('updateStatus');
     
