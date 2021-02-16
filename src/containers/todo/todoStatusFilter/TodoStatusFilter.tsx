@@ -1,6 +1,10 @@
 import React from 'react';
 
-const TodoStatusFilter = () => {
+export interface Props {
+    updateStatus: (status: boolean) => void;
+}
+
+const TodoStatusFilter: React.FC<Props> = (props) => {
 
     return (
         <section>
