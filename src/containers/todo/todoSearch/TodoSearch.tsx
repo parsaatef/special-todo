@@ -1,6 +1,10 @@
 import React from 'react';
 
-const TodoSearch = () => {
+export interface Props {
+    searchUpdate: (value: string) => void;
+}
+
+const TodoSearch: React.FC<Props> = (props) => {
 
     return (
         <section>
