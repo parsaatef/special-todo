@@ -79,7 +79,7 @@ describe("TodoItem Component Unit Test", () => {
 
         expect(orderEl.length).toBe(1);
 
-        expect(orderEl.text()).toBe(number);
+        expect(+orderEl.text()).toBe(number);
 
     });
 

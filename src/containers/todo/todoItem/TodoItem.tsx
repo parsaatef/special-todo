@@ -6,11 +6,19 @@ export interface Props extends Omit<Todo, 'id' | 'userId'> {
 
 const TodoItem: React.FC<Props> = (props) => {
 
-    return (
-        <section>
+    const {
+        orderNumber,
+        title,
+        completed
+    } = props;
 
-        </section>
-    )
+    return (
+        <tr data-test="component-todo-item">
+            <th scope="row" data-test="todo-item-order">{orderNumber}</th>
+            <td data-test="todo-item-title">{title}</td>
+            <td data-test="todo-item-status">{completed ? 'yes' : 'no'}</td>
+        </tr>
+    );
 };
 
 export default TodoItem;
