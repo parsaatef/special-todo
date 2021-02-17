@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { API_URL } from "../../configs/configs";
 import { Todo, TodoStatus } from "../../types/todo";
 import { RootState } from "../reducer";
@@ -74,11 +74,11 @@ async (dispatch) => {
             params.status = status === TodoStatus.COMPLETED;
         }
 
-        const response: Todo[] = await axios.get(url, {
+        const response: AxiosResponse<Todo[]> = await axios.get(url, {
             params
         });
 
-        dispatch(successTodos(response));
+        dispatch(successTodos(response.data));
 
     } catch(e) {
 

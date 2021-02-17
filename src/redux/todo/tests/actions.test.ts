@@ -10,10 +10,14 @@ import {
 } from '../constants';
 import { initialState } from '../reducer';
 import { storeFactory, todosMock } from '../../../helper/testUtils';
-import { selectTodo } from '../selectors';
+import { selectStatus, selectTodos } from '../selectors';
 import { TodoStatus } from 'types/todo';
 
 describe('Todo Redux Actions', () => {
+
+    const state = {
+        todo: initialState
+    };
     
     test("returns an action with type `SEARCH_UPDATE`", () => {
         
@@ -43,13 +47,18 @@ describe('Todo Redux Actions', () => {
             }
         });
 
+        const store = storeFactory(state);
+
+        store.dispatch(updateStatus(status));
+
+        const newState = selectStatus(store.getState());
+
+        expect(newState).toEqual(status);
+
     });
 
     describe('getTodos action creator', () => {
-    
-        const state = {
-            todo: initialState
-        };
+
 
         const store = storeFactory(state);
 
@@ -57,6 +66,13 @@ describe('Todo Redux Actions', () => {
 
         beforeEach(() => {
             moxios.install();
+        });
+
+        afterEach(() => {
+            moxios.uninstall();
+        });
+
+        test("add todos to state from server", () => {
 
             moxios.wait(() => {
                 const request = moxios.requests.mostRecent();
@@ -66,66 +82,11 @@ describe('Todo Redux Actions', () => {
                 });
             });
 
-        });
-
-        afterEach(() => {
-            moxios.uninstall();
-        });
-
-        test("add todos to state from server", () => {
-
             return store.dispatch(getTodos())
                 .then(() => {
-                    const newState = selectTodo(store.getState());
-                    expect(newState.todos).toEqual(todos);
+                    const newState = selectTodos(store.getState());
+                    expect(newState).toEqual(todos);
                 })
-
-        });
-
-        test("add todos to state from server by `title` filter", () => {
-
-            const title = 'Hello';
-
-            return store.dispatch(getTodos(title))
-                .then(() => {
-                    const newState = selectTodo(store.getState());
-                    expect(newState.todos).toEqual(
-                        todos.filter(todo => todo.title.includes(title))
-                    );
-                })
-
-        });
-
-        test("add todos to state from server by `status` filter", () => {
-
-            const status = TodoStatus.UNCOMPLETED;
-
-            return store.dispatch(getTodos('', status))
-                .then(() => {
-                    const newState = selectTodo(store.getState());
-                    expect(newState.todos).toEqual(
-                        todos.filter(todo => todo.completed === false)
-                    );
-                })
-
-        });
-
-        test("add todos to state from server by `status` and `title` filters", () => {
-
-            const title = 'Hello';
-
-            const status = TodoStatus.COMPLETED;
-
-            return store.dispatch(getTodos(title, status))
-                .then(() => {
-                    const newState = selectTodo(store.getState());
-                    expect(newState.todos).toEqual(
-                        todos.filter(todo => 
-                            todo.completed === true &&
-                            todo.title.includes(title)
-                        )
-                    );
-                });
 
         });
         
