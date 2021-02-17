@@ -3,13 +3,14 @@ import { Input } from 'reactstrap';
 
 export interface Props {
     searchUpdate: (value: string) => void;
+    search: string;
 }
 
 const TodoSearch: React.FC<Props> = (props) => {
 
-    const { searchUpdate } = props;
+    const { searchUpdate, search } = props;
 
-    const [value, setSearchValue] = React.useState('');
+    const [value, setSearchValue] = React.useState(search);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 

@@ -89,6 +89,59 @@ describe('Todo Redux Actions', () => {
                 })
 
         });
+
+        /*test("add todos to state from server by `status` filter", () => {
+
+            const title = 'Hello';
+
+            const filteredTodos = todos.filter(todo => todo.title.includes(title));
+
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                    status: 200,
+                    response: filteredTodos
+                });
+            });
+
+            return store.dispatch(getTodos(title))
+                .then(() => { console.log(store.getState());
+                    const newState = selectTodos(store.getState());
+                    expect(newState).toEqual(filteredTodos);
+                })
+
+        });
+
+        test("when action is filterBySearch", () => {
+
+            const filteredTodos = todos.filter(todo => todo.completed === false);
+
+            moxios.wait(() => {
+                const request = moxios.requests.mostRecent();
+                request.respondWith({
+                    status: 200,
+                    response: filteredTodos
+                });
+            });
+
+            const status = TodoStatus.UNCOMPLETED;
+
+            store.dispatch(filterByStatus(status))
+                //.then(() => {
+
+                    const currState = store.getState();
+
+                    const newTodos = selectTodos(currState);
+
+                    expect(newTodos).toEqual(filteredTodos);
+
+                    const newStatus = selectStatus(currState);
+
+                    expect(newStatus).toBe(status);
+
+                //})
+
+        });*/
         
     });
 

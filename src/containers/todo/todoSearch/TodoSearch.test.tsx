@@ -4,7 +4,8 @@ import { findTestEl } from '../../../helper/testUtils';
 import TodoSearch, { Props } from './TodoSearch';
 
 const initialProps = {
-    searchUpdate: jest.fn()
+    searchUpdate: jest.fn(),
+    search: ''
 };
 
 const setup = (props: Partial<Props> = initialProps) => {
