@@ -24,6 +24,7 @@ const TodoPage: React.FC<Props> = (props) => {
             <section className="container">
 
                 {loading && <div className="overlay" />}
+
                 {loading && <Spinner 
                     data-test="todo-page-loading" 
                     className="custom-loading" 
@@ -38,6 +39,7 @@ const TodoPage: React.FC<Props> = (props) => {
                         No result for the given search parameters!
                     </Alert>
                 )}
+
             </section>
 
         </section>

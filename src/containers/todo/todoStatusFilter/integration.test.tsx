@@ -53,15 +53,9 @@ describe('TodoStatusFilter Integration with Redux', () => {
 
         const selectBox = findTestEl(wrapper, 'todo-status-select').at(0);
 
-        console.log(selectBox.debug());
-
         const mockEvent = { target: { value: status } };
 
         selectBox.simulate("change", mockEvent);
-
-        const newStatus = selectStatus(store.getState());
-                
-        expect(newStatus).toBe(status);
 
         moxios.wait(() => {
 
@@ -70,13 +64,15 @@ describe('TodoStatusFilter Integration with Redux', () => {
             request.respondWith({
                 status: 200,
                 response: filteredTodos
-            }).then(() => { console.log("---store.getState()---", store.getState());
+            }).then(() => {
 
+                const newStatus = selectStatus(store.getState());
+                    
+                expect(newStatus).toBe(status);
 
+                const newTodos = selectTodos(store.getState());
 
-                //const newTodos = selectTodos(store.getState());
-
-                //expect(newTodos).toEqual(filteredTodos);
+                expect(newTodos).toEqual(filteredTodos);
                 
                 done();
 

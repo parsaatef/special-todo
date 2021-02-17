@@ -56,8 +56,6 @@ describe('TodoSearch Integration with Redux', () => {
 
         inputBox.simulate("change", mockEvent);
 
-        console.log(inputBox.debug());
-
         moxios.wait(() => {
 
             const request = moxios.requests.mostRecent();
@@ -65,7 +63,7 @@ describe('TodoSearch Integration with Redux', () => {
             request.respondWith({
                 status: 200,
                 response: filteredTodos
-            }).then(() => { console.log("---store.getState()222---", store.getState());
+            }).then(() => {
 
                 const newSearch = selectSearch(store.getState());
                 

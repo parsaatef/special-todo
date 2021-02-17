@@ -52,7 +52,8 @@ export const TodoReducer = (state: TodoState = initialState, action: any): TodoS
                     completed: todo.completed,
                     id: todo.id,
                     title: todo.title
-                })) || []
+                })) || [],
+                error: ''
             };
 
         case FAILURE_TODOS:

@@ -93,8 +93,6 @@ export const filterBySearch = (value: string) =>
 
     const status = selectStatus(getState());
 
-    console.log("----status---", status, value);
-
     dispatch(searchUpdate(value));
 
     dispatch(

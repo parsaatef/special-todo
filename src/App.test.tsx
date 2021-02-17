@@ -1,9 +1,14 @@
 import React from 'react';
-//import { render, screen } from '@testing-library/react';
+import { mount } from 'enzyme';
 import App from './App';
+import { findTestEl } from 'helper/testUtils';
 
-test('renders without crashing', () => {
-    //render(<App />);
-    //const title = screen.getByText(/Docler FE Homework/i);
-    //expect(title).toBeInTheDocument();
+test('renders App without crashing', () => {
+    
+    const wrapper = mount(<App />);
+
+    const component = findTestEl(wrapper, 'component-app');
+
+    expect(component.length).toBe(1);
+
 });

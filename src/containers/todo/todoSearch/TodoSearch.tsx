@@ -16,7 +16,7 @@ const TodoSearch: React.FC<Props> = (props) => {
 
         const val = e.target.value;
 
-        setSearchValue(val); console.log("-----value----", val);
+        setSearchValue(val);
 
         searchUpdate(val);
 
