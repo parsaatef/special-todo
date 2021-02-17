@@ -4,15 +4,22 @@ import { RootState } from "../reducer";
 import { Todo, TodoStatus } from "../../types/todo";
 import { FAILURE_TODOS, REQUEST_TODOS, SEARCH_UPDATE, SUCCESS_TODOS, UPDATE_STATUS } from "./constants";
 
+export interface ActionPayload {
+    title?: string;
+    status?: TodoStatus;
+    todos?: Todo[];
+    error?: string
+}
+
 export type SearchUpdateAction = Action<typeof SEARCH_UPDATE> & {
     payload: {
-        title: string;
+        title: ActionPayload['title'];
     }
 };
 
 export type UpdateStatusAction = Action<typeof UPDATE_STATUS> & {
     payload: {
-        status: TodoStatus
+        status: ActionPayload['status']
     }
 }
 
@@ -20,13 +27,13 @@ export type RequestTodosAction = Action<typeof REQUEST_TODOS>;
 
 export type SuccessTodosAction = Action<typeof SUCCESS_TODOS> & {
     payload: {
-        todos: Todo[]
+        todos: ActionPayload['todos']
     }
 };
 
 export type FailureTodosAction = Action<typeof FAILURE_TODOS> & {
     payload: {
-        error: string
+        error: ActionPayload['error']
     }
 };
 

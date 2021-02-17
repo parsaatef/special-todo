@@ -1,4 +1,4 @@
-import { TodoState, TodoStatus } from "types/todo";
+import { TodoState, TodoStatus } from "../../types/todo";
 import {
     SEARCH_UPDATE,
     UPDATE_STATUS,
@@ -6,6 +6,7 @@ import {
     SUCCESS_TODOS,
     FAILURE_TODOS
 } from './constants';
+import { ActionPayload } from "./types";
 
 export const initialState: TodoState = {
     search: '',
@@ -17,9 +18,50 @@ export const initialState: TodoState = {
 
 export const TodoReducer = (state: TodoState = initialState, action: any): TodoState => {
 
+    const payload: ActionPayload = action.payload;
+
     switch(action.type) {
+
         case SEARCH_UPDATE:
-            return state;
+
+            return {
+                ...state,
+                search: payload.title || ''
+            };
+
+        case UPDATE_STATUS:
+
+            return {
+                ...state,
+                status: payload.status || TodoStatus.ALL
+            };
+
+        case REQUEST_TODOS:
+
+            return {
+                ...state,
+                loading: true
+            };
+
+        case SUCCESS_TODOS:
+
+            return {
+                ...state,
+                loading: false,
+                todos: payload.todos?.map(todo => ({
+                    completed: todo.completed,
+                    id: todo.id,
+                    title: todo.title
+                })) || []
+            };
+
+        case FAILURE_TODOS:
+
+            return {
+                ...state,
+                loading: false,
+                error: payload.error || ''
+            };
 
         default: 
             return state;

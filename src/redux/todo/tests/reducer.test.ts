@@ -50,7 +50,7 @@ describe('Todo Reducer', () => {
 
         const newState = TodoReducer(initialState, successTodos(todos));
 
-        expect(newState.todos).toEqual(todos);
+        expect(newState.todos).toEqual(todosMock);
 
     });
 
