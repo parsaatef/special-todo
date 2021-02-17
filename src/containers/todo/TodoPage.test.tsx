@@ -51,7 +51,7 @@ describe("TodoPage Component Unit Test", () => {
     
         const todoList = findTestEl(wrapper, 'todo-page-list');
 
-        expect(todoList.length).toBe(todos.length);
+        expect(todoList.length).toBe(1);
 
         const todoEmpty = findTestEl(wrapper, 'todo-page-empty');
 
