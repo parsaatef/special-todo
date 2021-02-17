@@ -3,9 +3,11 @@ import { mount, ReactWrapper } from 'enzyme';
 import { findTestEl } from '../../../helper/testUtils';
 import TodoStatusFilter, { Props } from './TodoStatusFilter';
 import { getTodoStatuses } from '../../../helper/general';
+import { TodoStatus } from 'types/todo';
 
 const initialProps = {
-    updateStatus: jest.fn()
+    updateStatus: jest.fn(),
+    status: TodoStatus.ALL
 };
 
 const setup = (props: Partial<Props> = initialProps) => {
