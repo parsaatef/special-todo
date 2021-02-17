@@ -9,8 +9,9 @@ import {
     UPDATE_STATUS
 } from '../constants';
 import { initialState } from '../reducer';
-import { storFactory, todosMock } from '../../../helper/testUtils';
+import { storeFactory, todosMock } from '../../../helper/testUtils';
 import { selectTodo } from '../selectors';
+import { TodoStatus } from 'types/todo';
 
 describe('Todo Redux Actions', () => {
     
@@ -31,7 +32,7 @@ describe('Todo Redux Actions', () => {
 
     test("returns an action with type `UPDATE_STATUS`", () => {
         
-        const status = 'completed';
+        const status = TodoStatus.COMPLETED;
 
         const action = updateStatus(status);
 
@@ -50,7 +51,7 @@ describe('Todo Redux Actions', () => {
             todo: initialState
         };
 
-        const store = storFactory(state);
+        const store = storeFactory(state);
 
         const todos = todosMock;
 
@@ -97,7 +98,7 @@ describe('Todo Redux Actions', () => {
 
         test("add todos to state from server by `status` filter", () => {
 
-            const status = 'uncompleted';
+            const status = TodoStatus.UNCOMPLETED;
 
             return store.dispatch(getTodos('', status))
                 .then(() => {
@@ -113,7 +114,7 @@ describe('Todo Redux Actions', () => {
 
             const title = 'Hello';
 
-            const status = 'completed';
+            const status = TodoStatus.COMPLETED;
 
             return store.dispatch(getTodos(title, status))
                 .then(() => {

@@ -19,9 +19,11 @@ store => next => action => {
     return result
 };
 
-const store: Store<RootState, Action> & {
+export type AppStore = Store<RootState, Action> & {
     dispatch: any
-} = createStore(
+};
+
+const store: AppStore = createStore(
     reducer,
     applyMiddleware(thunk, logger)
 );

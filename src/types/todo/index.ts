@@ -8,8 +8,14 @@ export interface Todo {
 
 export type Todos = Omit<Todo, 'userId'>[];
 
+export enum TodoStatus {
+    COMPLETED = 'completed',
+    UNCOMPLETED = 'uncompleted',
+    ALL = 'all'
+};
+
 export interface TodoState {
     search: string;
-    status: 'completed' | 'uncompleted' | 'all';
+    status: TodoStatus;
     todos: Todos
 }

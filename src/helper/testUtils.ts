@@ -1,6 +1,7 @@
 import { ReactWrapper, ShallowWrapper } from "enzyme";
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, Store, Action } from 'redux';
 import thunk from 'redux-thunk';
+import { AppStore } from "redux/store";
 import rootReducer, { RootState } from "../redux/reducer";
 
 /**
@@ -18,7 +19,7 @@ export const findTestEl = (wrapper: ShallowWrapper | ReactWrapper, testId: strin
  * @param {*} initialState
  * @return store
  */
-export const storFactory = (initialState: RootState) => {
+export const storeFactory = (initialState: RootState): AppStore => {
     /**
      * We should add middleware
      */
@@ -27,7 +28,7 @@ export const storFactory = (initialState: RootState) => {
         initialState,
         applyMiddleware(thunk)
     );
-}
+};
 
 export const todosMock = [
     {
