@@ -62,16 +62,16 @@ async (dispatch) => {
         let url = `${API_URL}/todos`;
 
         const params: {
-            title?: string;
-            status?: boolean;
+            "title_like"?: string;
+            completed?: boolean;
         } = {};
 
         if(title) {
-            params.title = title;    
+            params["title_like"] = title;    
         }
 
         if(status && status !== TodoStatus.ALL) {
-            params.status = status === TodoStatus.COMPLETED;
+            params.completed = status === TodoStatus.COMPLETED;
         }
 
         const response: AxiosResponse<Todo[]> = await axios.get(url, {
@@ -92,6 +92,8 @@ export const filterBySearch = (value: string) =>
 (dispatch: TodoThunkDispatch, getState: () => RootState) => {
 
     const status = selectStatus(getState());
+
+    console.log("----status---", status, value);
 
     dispatch(searchUpdate(value));
 

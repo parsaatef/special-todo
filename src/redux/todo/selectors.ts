@@ -17,3 +17,8 @@ export const selectTodos = createSelector(
     selectTodo,
     todo => todo.todos
 );
+
+export const selectLoading = createSelector(
+    selectTodo,
+    todo => todo.loading
+);

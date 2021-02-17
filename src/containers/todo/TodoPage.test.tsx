@@ -4,7 +4,8 @@ import { findTestEl, todosMock } from '../../helper/testUtils';
 import TodoPage, { Props } from './TodoPage';
 
 const initialProps = {
-    todos: []
+    todos: [],
+    loading: false
 };
 
 const setup = (props: Partial<Props> = initialProps) => {
@@ -56,6 +57,26 @@ describe("TodoPage Component Unit Test", () => {
         const todoEmpty = findTestEl(wrapper, 'todo-page-empty');
 
         expect(todoEmpty.length).toBe(0);
+
+    });
+
+    test("renders correctly when `loading` prop is true" , () => {
+
+        const wrapper = setup({ loading: true });
+    
+        const loading = findTestEl(wrapper, 'todo-page-loading');
+
+        expect(loading.length).toBe(1);
+
+    });
+
+    test("renders correctly when `loading` prop is false" , () => {
+
+        const wrapper = setup();
+    
+        const loading = findTestEl(wrapper, 'todo-page-loading');
+
+        expect(loading.length).toBe(0);
 
     });
 

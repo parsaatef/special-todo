@@ -14,11 +14,11 @@ const TodoSearch: React.FC<Props> = (props) => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 
-        const value = e.target.value;
+        const val = e.target.value;
 
-        setSearchValue(value);
+        setSearchValue(val); console.log("-----value----", val);
 
-        searchUpdate(value);
+        searchUpdate(val);
 
     };
 

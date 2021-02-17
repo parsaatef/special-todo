@@ -1,5 +1,5 @@
 import { ReactWrapper, ShallowWrapper } from "enzyme";
-import { createStore, applyMiddleware, Store, Action } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { AppStore } from "redux/store";
 import rootReducer, { RootState } from "../redux/reducer";

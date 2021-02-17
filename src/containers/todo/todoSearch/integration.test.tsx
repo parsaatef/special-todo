@@ -50,11 +50,13 @@ describe('TodoSearch Integration with Redux', () => {
 
         const filteredTodos = todos.filter(todo => todo.title.includes(title));
 
-        const inputBox = findTestEl(wrapper, 'todo-search-input').at(0);
+        const inputBox = findTestEl(wrapper, 'todo-search-input').at(1);
 
-        const mockEvent = { target: { title } };
+        const mockEvent = { target: { value: title } };
 
         inputBox.simulate("change", mockEvent);
+
+        console.log(inputBox.debug());
 
         moxios.wait(() => {
 
@@ -63,11 +65,11 @@ describe('TodoSearch Integration with Redux', () => {
             request.respondWith({
                 status: 200,
                 response: filteredTodos
-            }).then(() => {
+            }).then(() => { console.log("---store.getState()222---", store.getState());
 
                 const newSearch = selectSearch(store.getState());
                 
-                expect(newSearch).toBe(newSearch);
+                expect(newSearch).toBe(title);
 
                 const newState = selectTodos(store.getState());
 

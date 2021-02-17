@@ -15,15 +15,17 @@ const TodosList: React.FC<Props> = (props) => {
         <section data-test="component-todos-list">
             <Table responsive striped data-test="todos-list-container">
                 <thead>
-                    <th>
-                        #
-                    </th>  
-                    <th>
-                        Title
-                    </th>    
-                    <th>
-                        Completed
-                    </th>      
+                    <tr>
+                        <th>
+                            #
+                        </th>  
+                        <th>
+                            Title
+                        </th>    
+                        <th>
+                            Completed
+                        </th>
+                    </tr>    
                 </thead>
                 <tbody>
                     

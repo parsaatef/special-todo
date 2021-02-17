@@ -1,15 +1,16 @@
+import { TodoStatus } from "types/todo";
 
 export const getTodoStatuses = [
     {
         text: 'All',
-        value: ''
+        value: TodoStatus.ALL
     },
     {
         text: 'Yes',
-        value: 'yes'
+        value: TodoStatus.COMPLETED
     },
     {
         text: 'No',
-        value: 'no'
+        value: TodoStatus.UNCOMPLETED
     } 
 ];
