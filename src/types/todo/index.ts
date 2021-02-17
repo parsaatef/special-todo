@@ -17,5 +17,7 @@ export enum TodoStatus {
 export interface TodoState {
     search: string;
     status: TodoStatus;
-    todos: Todos
+    todos: Todos;
+    loading: boolean;
+    error: string;
 }

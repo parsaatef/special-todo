@@ -1,4 +1,4 @@
-import { TodoState } from "types/todo";
+import { TodoState, TodoStatus } from "types/todo";
 import {
     SEARCH_UPDATE,
     UPDATE_STATUS,
@@ -9,8 +9,10 @@ import {
 
 export const initialState: TodoState = {
     search: '',
-    status: 'all',
-    todos: []
+    status: TodoStatus.ALL,
+    todos: [],
+    loading: false,
+    error: ''
 };
 
 export const TodoReducer = (state: TodoState = initialState, action: any): TodoState => {

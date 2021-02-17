@@ -24,7 +24,7 @@ describe('Todo Redux Actions', () => {
         expect(action).toEqual({
             type: SEARCH_UPDATE,
             payload: {
-                search: searchedVal
+                title: searchedVal
             }
         });
 
@@ -39,7 +39,7 @@ describe('Todo Redux Actions', () => {
         expect(action).toEqual({
             type: UPDATE_STATUS,
             payload: {
-                status: status
+                status
             }
         });
 
