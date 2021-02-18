@@ -10,7 +10,7 @@ const App: React.FC = () => {
     return (
         <Provider store={store}>
             <PersistGate persistor={persistor}>
-                <section data-test="component-app">
+                <section className="container" data-test="component-app">
                     <TodoPageContainer />
                 </section>
             </PersistGate>

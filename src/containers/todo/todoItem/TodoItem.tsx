@@ -14,9 +14,9 @@ const TodoItem: React.FC<Props> = (props) => {
 
     return (
         <tr data-test="component-todo-item">
-            <th scope="row" data-test="todo-item-order">{orderNumber}</th>
+            <th className="text-center" scope="row" data-test="todo-item-order">{orderNumber}</th>
             <td data-test="todo-item-title">{title}</td>
-            <td data-test="todo-item-status">{completed ? 'yes' : 'no'}</td>
+            <td className="text-center" data-test="todo-item-status">{completed ? 'Yes' : 'No'}</td>
         </tr>
     );
 };

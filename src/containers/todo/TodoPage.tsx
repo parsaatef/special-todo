@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Spinner } from 'reactstrap';
+import { Alert, Col, Row, Spinner } from 'reactstrap';
 import { Todos } from 'types/todo';
 import TodoSearchContainer from './todoSearch/TodoSearchContainer';
 import TodosList from './todosList/TodosList';
@@ -17,11 +17,21 @@ const TodoPage: React.FC<Props> = (props) => {
     return (
         <section data-test="component-todo-page">
 
-            <TodoSearchContainer />
+            <h1 className="mt-3 mb-4">Todos</h1>
 
-            <TodoStatusFilterContainer />
+            <Row className="mb-3">
 
-            <section className="container">
+                <Col md={6}>
+                    <TodoSearchContainer />
+                </Col>
+
+                <Col md={6}>
+                    <TodoStatusFilterContainer />
+                </Col>
+
+            </Row>
+
+            <section className="position-relative mb-4">
 
                 {loading && <div className="overlay" />}
 

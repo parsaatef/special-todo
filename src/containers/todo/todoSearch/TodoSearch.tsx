@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from 'reactstrap';
+import { Col, FormGroup, Input, Label } from 'reactstrap';
 
 export interface Props {
     searchUpdate: (value: string) => void;
@@ -24,11 +24,16 @@ const TodoSearch: React.FC<Props> = (props) => {
 
     return (
         <section data-test="component-todo-search">
-            <Input 
-                data-test="todo-search-input" 
-                onChange={handleChange} 
-                value={value} 
-            />
+            <FormGroup row>
+                <Label className="col-2 col-form-label really-small-col">Search: </Label>
+                <Col className="col-10 really-small-col">
+                    <Input 
+                        data-test="todo-search-input" 
+                        onChange={handleChange} 
+                        value={value} 
+                    />
+                </Col>
+            </FormGroup>
         </section>
     );
 };

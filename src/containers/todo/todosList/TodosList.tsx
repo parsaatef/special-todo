@@ -13,16 +13,16 @@ const TodosList: React.FC<Props> = (props) => {
 
     return (
         <section data-test="component-todos-list">
-            <Table responsive striped data-test="todos-list-container">
-                <thead>
+            <Table responsive bordered data-test="todos-list-container">
+                <thead className="bg-gray">
                     <tr>
-                        <th>
+                        <th className="text-center">
                             #
                         </th>  
                         <th>
                             Title
                         </th>    
-                        <th>
+                        <th className="text-center">
                             Completed
                         </th>
                     </tr>    

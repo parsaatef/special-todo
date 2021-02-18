@@ -39,7 +39,7 @@ describe("TodoItem Component Unit Test", () => {
 
         expect(statusEl.length).toBe(1);
 
-        expect(statusEl.text()).toBe('yes');
+        expect(statusEl.text()).toBe('Yes');
 
     });
 
@@ -51,7 +51,7 @@ describe("TodoItem Component Unit Test", () => {
 
         expect(statusEl.length).toBe(1);
 
-        expect(statusEl.text()).toBe('no');
+        expect(statusEl.text()).toBe('No');
 
     });
 
