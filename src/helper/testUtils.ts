@@ -8,7 +8,7 @@ import rootReducer, { RootState } from "../redux/reducer";
  * Find test element by data-test attribute
  * @param wrapper 
  * @param testId
- * @returns  
+ * @returns ShallowWrapper | ReactWrapper   
  */
 export const findTestEl = (wrapper: ShallowWrapper | ReactWrapper, testId: string) => {
     return wrapper.find(`[data-test="${testId}"]`);

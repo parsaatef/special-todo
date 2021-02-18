@@ -21,6 +21,12 @@ export const getTodoStatuses = [
     } 
 ];
 
+/**
+ * To show interaction notifications uniquely
+ * @param toastId 
+ * @param content 
+ * @param options 
+ */
 export const uniqueToast = (toastId: Id, content: ToastContent, options?: Omit<ToastOptions, 'toastId'>) => {
     if (!toast.isActive(toastId)) {
         toast(content, {

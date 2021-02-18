@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, CustomInput, FormGroup, Label } from 'reactstrap';
-import { TodoStatus } from 'types/todo';
+import { TodoStatus } from '../../../types/todo';
 import { getTodoStatuses } from '../../../helper/general';
 export interface Props {
     updateStatus: (status: TodoStatus) => void;

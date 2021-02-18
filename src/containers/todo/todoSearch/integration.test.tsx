@@ -5,8 +5,8 @@ import { findTestEl, storeFactory, todosMock } from '../../../helper/testUtils';
 import { Provider } from 'react-redux';
 import { initialState } from 'redux/todo/reducer';
 import TodoSearchContainer from './TodoSearchContainer';
-import { selectSearch, selectTodos } from 'redux/todo/selectors';
-import { AppStore } from 'redux/store';
+import { selectSearch, selectTodos } from '../../../redux/todo/selectors';
+import { AppStore } from '../../../redux/store';
 import moxios from 'moxios';
 
 const setup = (store: AppStore) => {

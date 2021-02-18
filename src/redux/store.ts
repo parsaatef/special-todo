@@ -11,7 +11,7 @@ import reducer, { RootState } from './reducer';
 import { persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 
-const logger: Middleware<any, RootState, Dispatch<AnyAction>> = 
+const logger: Middleware<{}, RootState, Dispatch<AnyAction>> = 
 store => next => action => {
     console.log('dispatching', action)
     const result = next(action)

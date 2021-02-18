@@ -46,8 +46,12 @@ const TodoPageContainer: React.FC<PropsFromRedux> = (props) => {
         getTodos(search, status);
     }, []);
 
+    /**
+     * Show error notification when getting todos encounter an 
+     * error(like server error or Network error)
+     */
     React.useEffect(() => {
-        if(error) {
+        if(error && !loading) {
             uniqueToast('todosRequestError', error, {
                 type: 'error',
                 autoClose: 3000
@@ -57,7 +61,7 @@ const TodoPageContainer: React.FC<PropsFromRedux> = (props) => {
         return () => {
             toast.dismiss();
         };
-    }, [error, search, status]);
+    }, [error, search, status, loading]);
 
     return <TodoPage 
         todos={todos}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
-import TodoPageContainer from 'containers/todo/TodoPageContainer';
+import TodoPageContainer from './containers/todo/TodoPageContainer';
 import ToastContainer from './components/toastContainer/ToastContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
