@@ -22,3 +22,8 @@ export const selectLoading = createSelector(
     selectTodo,
     todo => todo.loading
 );
+
+export const selectError = createSelector(
+    selectTodo,
+    todo => todo.error
+);
